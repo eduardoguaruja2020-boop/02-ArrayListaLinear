@@ -118,6 +118,6 @@ void buscarElemento()
 		}
 	}
 	if (acho == false) {
-		cout << "Elemento nao encontrado neguinho.\n";
+		cout << "Elemento nao encontrado.\n";
 	}
 }
