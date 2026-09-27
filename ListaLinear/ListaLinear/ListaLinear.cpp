@@ -105,6 +105,8 @@ void inserirElemento()
 // deve ser implementada como resposta ao exercicio
 void buscarElemento()
 {
+	int tamanho = sizeof(lista) / sizeof(lista[0]); // aqui ele pega o tamanho total da lista em bytes (16), e divide pelo tamanho do primeiro elemento [0], que em bytes é 4, como resultado, o tamanho da lista é 4 (16/4 = 4)
+	int ocorrencia = 0;
 	cout << "Digite o elemento a buscar: \n";
 	int elemento = 0;
 	cin >> elemento;
@@ -112,10 +114,21 @@ void buscarElemento()
 	for (int i = 0; i < nElementos; i++) {
 		if (elemento == lista[i]) {
 			acho = true;
+			ocorrencia += 1;
 		}
 		if (acho == true) {
 			cout << "Elemento encontrado na posicao " << i + 1 << endl;
 		}
+	}
+	if (ocorrencia > 1) {
+		cout << "Lista = [";
+		for (int i = 0; i < tamanho; i++) {
+			cout << lista[i];
+			if (i < tamanho - 1) {
+				cout << ", ";
+			}
+		}
+		cout << "]" << endl;
 	}
 	if (acho == false) {
 		cout << "Elemento nao encontrado.\n";
